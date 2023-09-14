@@ -31,8 +31,7 @@ nav .icons button {
 
 article {
   color: #7C6A0A;
-  background-color: beige;
-  padding: 0 45px 0 45px;
+  padding: 70px 45px 0 45px;
   display: flex;
   justify-content: space-between;
 }
@@ -64,6 +63,33 @@ article button {
 article img {
   width: 25vw;
   border-radius: 19px;
+}
+
+section {
+  width: 100%;
+  height: auto;
+  padding: 60px;
+}
+section h2 {
+  color: #7C6A0A;
+  font-size: 2em;
+}
+section .healthcare h2 {
+  font-weight: 300;
+  padding: 0 0 60px 0;
+}
+section .healthcare .product-card {
+  width: 15vw;
+  height: auto;
+  background-color: #FFDAC6;
+  color: #7C6A0A;
+  padding: 20px;
+  border-radius: 8px;
+}
+section .healthcare .product-card img {
+  width: 200px;
+  height: 250px;
+  border-radius: 6px;
 }
 
 footer {

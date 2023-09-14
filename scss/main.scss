@@ -38,8 +38,7 @@ nav{
 }
 article{
     color: $primary-text-color;
-    background-color: beige;
-    padding: 0 45px 0 45px;
+    padding: 70px 45px 0 45px;
     display: flex;
     justify-content: space-between;
     .impact-section{
@@ -70,6 +69,34 @@ article{
     img{
         width: 25vw;
         border-radius: 19px;
+    }
+}
+section{
+    width: 100%;
+    height: auto;
+    padding: 60px;
+    h2{
+        color: $primary-text-color;
+        font-size: 2em;
+    }
+    .healthcare{
+        h2{
+            font-weight: 300;
+            padding: 0 0 60px 0;
+        }
+        .product-card{
+            width: 15vw;
+            height: auto;
+            background-color: $secondary-color;
+            color: $primary-text-color;
+            padding: 20px;
+            border-radius: 8px;
+            img{
+                width: 200px;
+                height: 250px;
+                border-radius: 6px;
+            }
+        }
     }
 }
 
