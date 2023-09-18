@@ -3,8 +3,22 @@ $secondary-color: #FFDAC6;
 $tertiary-color: #BABD8D;
 $primary-text-color: #7C6A0A;
 $quaternary-color: #FA9500;
+$alternative-text-color: #E86424;
 $font-stack: "IBM Plex Sans", sans-serif;
 $paragraph-size: 1.5em;
+
+@mixin flexCenter($direction, $content, $align){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $content;
+    align-items: $align;
+}
+@mixin buttonStyle{
+    button{
+        background: none;
+        border-style: none;
+    }
+}
 
 * {
     box-sizing: border-box;
@@ -20,8 +34,7 @@ body{
 nav{
     height: 100px;
     width: auto;
-    display: flex;
-    justify-content: space-between;
+    @include flexCenter(row, space-between, center);
     p{
         font-size: $paragraph-size;
         padding: 0 0 0 30px;
@@ -30,21 +43,16 @@ nav{
         display: flex;
         gap: 15px;
         padding: 0 30px 0 0;
-        button{
-            border: none;
-            background: none;
-        }
+        @include buttonStyle();
     }
 }
 article{
     color: $primary-text-color;
     padding: 70px 45px 0 45px;
-    display: flex;
-    justify-content: space-between;
+    @include flexCenter(row, space-between, center);
     .impact-section{
-        display: flex;
+        @include flexCenter(column, space-evenly, flex-start);
         gap: 15px;
-        flex-direction: column;
         padding-top: 50px;
     }
     h1{
@@ -55,16 +63,19 @@ article{
     p{
         font-size: $paragraph-size;
     }
+    @include buttonStyle();
     button{
-        width: 12vw;
+        width: 15vw;
         margin-top: 30px;
         padding: 20px;
         background-color: $quaternary-color;
-        border: none;
         border-radius: 35px;
         color: white;
         font-size: 1em;
         font-weight: bold;
+        &:hover{
+            transform: scale(1.1);
+        }
     }
     img{
         width: 25vw;
@@ -87,18 +98,16 @@ section{
             padding: 0 0 60px 0;
         }
         .card-section{
-            display: flex;
             width: auto;
             height: auto;
-            justify-content: center;
+            @include flexCenter(row, space-evenly, center);
             flex-wrap: wrap;
-            align-items: center;
             column-gap: 100px;
             row-gap: 80px;
         }
         .product-card{
-            width: 25vw;
-            height: 35vh;
+            width: 20vw;
+            height: 45vh;
             background-color: $secondary-color;
             color: $primary-text-color;
             padding: 20px;
@@ -124,9 +133,10 @@ section{
                 align-items: center;
                 img{
                     width: 20vw;
-                    height: 20vh;
+                    height: 30vh;
                     object-fit: cover;
                     border-radius: 6px;
+                    padding: 10px;
                 }
             }
             h3{
@@ -144,8 +154,87 @@ section{
     }
 }
 
+.about-us{
+    padding-bottom: 60px;
+    h2{
+        font-weight: bold;
+        padding-bottom: 60px;
+    }
+    .mission-section{
+        @include flexCenter(row, space-evenly, center);
+        .earth{
+            width: 25vw;
+            display: flex;
+            gap: 40px;
+            color: $alternative-text-color;
+            img{
+                object-fit: contain;
+            }
+            p{
+                text-align: center;
+                font-size: $paragraph-size;
+            }
+        }
+    }
+    .innovation{
+        @extend .earth;
+    }
+}
+.gallery{
+    h2{
+        font-weight: bold;
+        padding-bottom: 60px
+    }
+    .gallery-images{
+        @include flexCenter(row, space-between, center);
+        img{
+            width: 28vw;
+            height: 45vh;
+            object-fit: cover;
+            object-position: 5px 35%;
+            border-radius: 16px;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+.location{
+    color: $alternative-text-color;
+    h2{
+        padding: 60px 0 60px 0;
+    }
+    .map{
+        @include flexCenter(row, center, center);
+        padding: 0 0 50px 0;
+    }
+    h3{
+        padding: 10px 0 10px 0;
+        font-size: 1.5em;
+    }
+    p{
+        font-size: $paragraph-size;
+    }
+}
+
 footer{
     background-color: $quaternary-color;
     width: 100%;
-    height: 250px;
+    height: auto;
+    padding: 40px;
+    color: white;
+    h3{
+        font-size: $paragraph-size;
+        padding-bottom: 20px;
+    }
+    p{
+        padding: 10px 0;
+        font-size: 1.1em;
+    }
+    .social-media{
+        @include flexCenter(row, center, center);
+        gap: 40px;
+        padding-bottom: 40px;
+    }
 }
